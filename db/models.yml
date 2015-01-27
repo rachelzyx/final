@@ -1,0 +1,24 @@
+Park:
+  name: string
+  state: string
+  country: string
+  rating: integer
+  summary: text
+
+Park_Feature:
+  park_id: integer
+  feature_id: integer
+
+Feature:
+  activity: string
+
+User:
+  email: string
+  psasword: string
+  name: string
+
+Review:
+  park_id: integer
+  user_id: integer
+  rating: integer
+  body: text
