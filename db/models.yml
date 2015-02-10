@@ -1,9 +1,11 @@
 Park:
   name: string
+  image: string
   state: string
   country: string
   rating: integer
   summary: text
+  airport_id: integer
 
 Park_Feature:
   park_id: integer
@@ -22,3 +24,6 @@ Review:
   user_id: integer
   rating: integer
   body: text
+
+Airport:
+  name: string

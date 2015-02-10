@@ -1,14 +1,17 @@
-<h1> National Parks! </h1>
 
-<p><a href="/final/new" class="btn btn-primary">New Park</a></p>
 
-<% @park = Park.all %>
 
-<table class="table">
-  <% @park.each do |park| %>
-  <tr>
-  <td><p><a href="/final/<%= park.id %>"><%= park.name %></a></p></td>
-  </tr>
-<% end %>
-</table>
+<div class="row">
+  <% @parks.each do |park| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= link_to image_tag(park.image), final %>
+        <div class="caption">
+          <h3><%= link_to park.name, final %></h3>
+          <p><%= park.summary %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 

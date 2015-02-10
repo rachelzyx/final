@@ -1,0 +1,14 @@
+
+<h3 class="page-header">
+  All Features
+  <span class="pull-right">
+    <%= link_to "New Feature", new_feature_path, class: 'btn btn-sm btn-success' %>
+  </span>
+</h3>
+
+
+<ul>
+  <% @features.each do |feature| %>
+    <li><%= feature.activity %><%= link_to "Edit", edit_feature_path(feature) %> <%= link_to "Delete", feature_path(feature), method: :delete, data: { confirm: 'Are you really sure?' } %></li>
+  <% end %>
+</ul>

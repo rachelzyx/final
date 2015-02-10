@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "airports", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "features", force: :cascade do |t|
     t.string "activity"
   end
@@ -31,7 +35,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "country"
     t.integer "rating"
     t.text    "summary"
+    t.integer "airport_id"
+    t.string  "image"
   end
+
+  add_index "parks", ["airport_id"], name: "index_parks_on_airport_id"
 
   create_table "reviews", force: :cascade do |t|
     t.integer "park_id"

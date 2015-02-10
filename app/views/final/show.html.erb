@@ -1,16 +1,37 @@
 
-<h1><%= @park.name %></h1>
+<h1 class="title">
+   <%= @park.name %>
+  <span class="rating"><%= @park.rating %></span>
+</h1>
 
-<p>State: <%= @park.state %></p>
+<div class="row">
+  <div class="col-md-3 text-center">
+    <p><%= imagine_tag @park.image %>></p>
+    <p><strong>State:</strong> <%= @park.state %></p>
+    <p><strong>Country:</strong> <%= @park.country %></p>
+  </div>
+  <div class="col-md-4 summary">
+    <h2>Summary</h2>
+    <p> <%= @park.summary %></p>
+  </div>
+  <div class="col-md-3 actors">
+    <h2>Park Features</h2>
+    <ul class="list-unstyled">
+      <%= @park_features.each do |park_feature| %>
+      <li><%= Feature.find_by(id: park_feature.feature_id).name %></li>
+      <% end%>
+    </ul>
+  </div>
+</div>
 
-<p>Country: <%= @park.country %></p>
-
-<p>Rating: <%= @park.rating %></p>
-
-<p>Summary: <%= @park.summary %></p>
-
-<h3>Features</h3>
-
-<p><%= @features.each do |feature| %></p>
-  <p><%= feature.activity %></p>
-<% end %>
+<div class="row">
+  <div class="col-md-9 col-md-offset-3 reviews">
+    <h2 class="page-header">Transportation</h2>
+    <table class="table table-striped table-bordered">
+      <tr>
+        <td><strong>Nearest Airport</strong></td>
+        <td><%= @park.airport.name %></td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -6,14 +6,21 @@ Feature.delete_all
 User.delete_all
 Review.delete_all
 
+# Create commute airports
+puts "Creating airports..."
+
+slc = Airport.create(name: "SLC")
+jac = Airport.create(name: "JAC")
+sfo = Airport.create(name: "SFO")
+
 
 # Create Park
 puts "Creating parks..."
-arches = Park.create(name: "Arches", state: "Utah", country: "US", rating: "5", summary: "A landscape of contrasting colors, landforms and textures")
-bryce_canyon = Park.create(name: "Bryce Canyon", state: "Utah", country: "US", rating: "4", summary: "Archetypal hoodoo-iferous terrain")
-yellowstone = Park.create(name: "Yellowstone", state: "Wyoming", country: "US", rating: "5", summary: "Best park")
-yosemite = Park.create(name: "Yosemite", state: "California", country: "US", rating: "4", summary: "World Heritage Site")
-sequoia = Park.create(name: "Sequoia", state: "California", country: "US", rating: "4", summary: "Giant sequoia trees")
+arches = Park.create(airport_id: slc.id, name: "Arches", state: "Utah", country: "US", rating: "5", image: "arches.jpg", summary: "A landscape of contrasting colors, landforms and textures")
+bryce_canyon = Park.create(airport_id: slc.id, name: "Bryce Canyon", state: "Utah", country: "US", rating: "4", image: "brycecanyon.jpg", summary: "Archetypal hoodoo-iferous terrain")
+yellowstone = Park.create(airport_id: jac.id, name: "Yellowstone", state: "Wyoming", country: "US", rating: "5", image: "yellowstone.jpg", summary: "Best park")
+yosemite = Park.create(airport_id: sfo.id, name: "Yosemite", state: "California", country: "US", rating: "4", image: "yosemite.jpg", summary: "World Heritage Site")
+sequoia = Park.create(airport_id: sfo.id, name: "Sequoia", state: "California", country: "US", rating: "4", image: "sequoia.jpg", summary: "Giant sequoia trees")
 
 
 # Create Feature
@@ -55,3 +62,5 @@ Park_Feature.create(park_id: yosemite.id, feature_id: skiing.id)
 Park_Feature.create(park_id: sequoia.id, feature_id: hiking.id)
 Park_Feature.create(park_id: sequoia.id, feature_id: camping.id)
 Park_Feature.create(park_id: sequoia.id, feature_id: sightseeing.id)
+
+
