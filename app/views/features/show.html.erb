@@ -1,0 +1,9 @@
+
+<h1>You can do <%= @feature.activity %> in the following parks!</h1>
+
+
+<ul>
+  <% @park_features.each do |park_feature| %>
+    <li><%= link_to park_feature.park.activity, final_path(park_feature.park) %></li>
+  <% end %>
+</ul>

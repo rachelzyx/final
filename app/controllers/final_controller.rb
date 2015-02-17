@@ -5,17 +5,43 @@ def index
 end
 
 def show
-  #do something with params[:"id"]
-  @park = Park.find_by(id: params["id"])
-  @park_features = Park_Feature.where(park_id: @park.id)
-  @features = []
-  @park_features.each do |park_feature|
-    @features << Feature.find_by(id: park_feature.feature_id)
+    @park = Park.find_by(id: params["id"])
+    @park_features = @park.park_features 
   end
-end
 
 def new
   @park = Park.new
+end
+
+def create
+  park_params = params.require(:park).permit!
+  @park = Park.new(park_params)
+  if @park.save
+    redirect_to final_path
+  else
+    render text: "FAIL"
+  end
+end
+
+def edit
+  @park = Park.find_by(id: params["id"])
+end
+
+def update
+  park_params = params.require(:park).permit!
+  @park = Park.find_by(id: params["id"])
+  @park.update(park_params)
+  if @park.valid?
+    redirect_to final_path
+  else
+    render text: "FAIL"
+  end
+end
+
+def destroy
+  @park = Park.find_by(id: params["id"])
+  @park.destroy
+  redirect_to final_path
 end
 
 end

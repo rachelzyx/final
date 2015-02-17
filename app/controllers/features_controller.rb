@@ -4,6 +4,11 @@ class FeaturesController < ApplicationController
     @features = Feature.all
   end
 
+  def show
+    @feature = Feature.find_by(id: params["id"])
+    @park_features = @feature.park_features
+  end
+
   def new
     @feature = Feature.new
   end

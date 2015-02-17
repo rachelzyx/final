@@ -9,6 +9,6 @@
 
 <ul>
   <% @features.each do |feature| %>
-    <li><%= feature.activity %><%= link_to "Edit", edit_feature_path(feature) %> <%= link_to "Delete", feature_path(feature), method: :delete, data: { confirm: 'Are you really sure?' } %></li>
+    <li><%= link_to feature.activity, feature_path(feature) %> <%= link_to "Edit", edit_feature_path(feature) %> <%= link_to "Delete", feature_path(feature), method: :delete, data: { confirm: 'Are you really really really sure?' } %></li>
   <% end %>
 </ul>

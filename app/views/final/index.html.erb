@@ -5,9 +5,9 @@
   <% @parks.each do |park| %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <%= link_to image_tag(park.image), final %>
+        <%= link_to image_tag(park.image), final_path(park) %>
         <div class="caption">
-          <h3><%= link_to park.name, final %></h3>
+          <h3><%= link_to park.name, final_path(park) %></h3>
           <p><%= park.summary %></p>
         </div>
       </div>

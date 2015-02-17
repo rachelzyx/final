@@ -1,30 +1,42 @@
-<form action="/final" method="POST">
+
+<%= form_for @park do |form| %>
 
   <div class="form-group">
-  <label for="name">Name of the Park</label>
-  <input name="name" input type="text" class="form-control" id="name" placeholder="Enter the name of the park">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div class="form-group">
-  <label for="state">State of the Park</label>
-  <input name="state" input type="text" class="form-control" id="state" placeholder="Which state does the park belong to?">
+    <%= form.label :image %>
+    <%= form.text_field :image, class: "form-control" %>
   </div>
 
   <div class="form-group">
-  <label for="country">Country of the Park</label>
-  <input name="country" input type="text" class="form-control" id="country" placeholder="Which country does the park belong to?">
+    <%= form.label :state %>
+    <%= form.text_field :state, class: "form-control" %>
   </div>
 
   <div class="form-group">
-  <label for="rating">Rating of the Park</label>
-  <input name="rating" input type="text" class="form-control" id="rating" placeholder="Rate the park">
+    <%= form.label :country %>
+    <%= form.text_field :country, class: "form-control" %>
   </div>
 
   <div class="form-group">
-  <label for="summary">Summary</label>
-  <input name="summary" input type="text" class="form-control" id="summary" placeholder="What's the park featured for?">
+    <%= form.label :rating %>
+    <%= form.text_field :rating, class: "form-control" %>
   </div>
 
-  <button type="submit" class="btn btn-default">Submit</button>
+  <div class="form-group">
+    <%= form.label :summary %>
+    <%= form.text_area :summary, class: "form-control", rows: 5 %>
+  </div>
 
-</form>
+  <div class="form-group">
+    <%= form.label :airport_id %>
+    <%= form.collection_select :airport_id, Airport.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
+  </div>
+
+  </div>
+  <%= form.button 'Create Park', class: "btn btn-success" %>
+
+<% end %>
