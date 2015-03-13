@@ -1,3 +1,4 @@
+
 <h1 class="title">
    <%= @park.name %>
   <span class="rating"><%= @park.rating %></span>
@@ -5,7 +6,7 @@
 
 <div class="row">
   <div class="col-md-3 text-center">
-    <p><%= image_tag @park.image %>></p>
+    <p><%= image_tag @park.image, class: "poster" %>></p>
     <p><strong>State:</strong> <%= @park.state %></p>
     <p><strong>Country:</strong> <%= @park.country %></p>
   </div>
