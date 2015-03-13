@@ -3,7 +3,7 @@
 
 
 <ul>
-  <% @park_features.each do |park_feature| %>
-    <li><%= link_to park_feature.park.activity, final_path(park_feature.park) %></li>
+  <% @parkfeatures.each do |parkfeature| %>
+    <li><%= link_to parkfeature.park.name, park_path(parkfeature.park) %></li>
   <% end %>
 </ul>

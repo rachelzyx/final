@@ -1,10 +1,14 @@
 # Deletes everything from the database so that you start fresh
 puts "Deleting all records from the database..."
 Park.delete_all
-Park_Feature.delete_all
+Parkfeature.delete_all
 Feature.delete_all
 User.delete_all
 Review.delete_all
+
+# Create users
+User.create(name: "Rachel", email: "yzheng2015@kellogg.northwestern.edu", password: "1234")
+User.create(name: "Susan", email: "lzhai2015@kellogg.northwestern.edu", password: "1234")
 
 # Create commute airports
 puts "Creating airports..."
@@ -32,35 +36,35 @@ fishing = Feature.create(activity: "Fishing")
 sightseeing = Feature.create(activity: "Sightseeing")
 skiing = Feature.create(activity: "Skiing")
 
-# Create Park_Feature
-puts "Creating part_features..."
+# Create Parkfeature
+puts "Creating parkfeatures..."
 
-# Create the park_features for Arches
-Park_Feature.create(park_id: arches.id, feature_id: hiking.id)
-Park_Feature.create(park_id: arches.id, feature_id: camping.id)
-Park_Feature.create(park_id: arches.id, feature_id: sightseeing.id)
+# Create the parkfeatures for Arches
+Parkfeature.create(park_id: arches.id, feature_id: hiking.id)
+Parkfeature.create(park_id: arches.id, feature_id: camping.id)
+Parkfeature.create(park_id: arches.id, feature_id: sightseeing.id)
 
-# Create the park_features for Bryce Canyon
-Park_Feature.create(park_id: bryce_canyon.id, feature_id: hiking.id)
-Park_Feature.create(park_id: bryce_canyon.id, feature_id: camping.id)
-Park_Feature.create(park_id: bryce_canyon.id, feature_id: sightseeing.id)
+# Create the parkfeatures for Bryce Canyon
+Parkfeature.create(park_id: bryce_canyon.id, feature_id: hiking.id)
+Parkfeature.create(park_id: bryce_canyon.id, feature_id: camping.id)
+Parkfeature.create(park_id: bryce_canyon.id, feature_id: sightseeing.id)
 
-# Create the park_features for Yellowstone
-Park_Feature.create(park_id: yellowstone.id, feature_id: hiking.id)
-Park_Feature.create(park_id: yellowstone.id, feature_id: camping.id)
-Park_Feature.create(park_id: yellowstone.id, feature_id: boating.id)
-Park_Feature.create(park_id: yellowstone.id, feature_id: fishing.id)
-Park_Feature.create(park_id: yellowstone.id, feature_id: sightseeing.id)
+# Create the parkfeatures for Yellowstone
+Parkfeature.create(park_id: yellowstone.id, feature_id: hiking.id)
+Parkfeature.create(park_id: yellowstone.id, feature_id: camping.id)
+Parkfeature.create(park_id: yellowstone.id, feature_id: boating.id)
+Parkfeature.create(park_id: yellowstone.id, feature_id: fishing.id)
+Parkfeature.create(park_id: yellowstone.id, feature_id: sightseeing.id)
 
-# Create the park_features for Yosemite
-Park_Feature.create(park_id: yosemite.id, feature_id: hiking.id)
-Park_Feature.create(park_id: yosemite.id, feature_id: camping.id)
-Park_Feature.create(park_id: yosemite.id, feature_id: sightseeing.id)
-Park_Feature.create(park_id: yosemite.id, feature_id: skiing.id)
+# Create the parkfeatures for Yosemite
+Parkfeature.create(park_id: yosemite.id, feature_id: hiking.id)
+Parkfeature.create(park_id: yosemite.id, feature_id: camping.id)
+Parkfeature.create(park_id: yosemite.id, feature_id: sightseeing.id)
+Parkfeature.create(park_id: yosemite.id, feature_id: skiing.id)
 
-# Create the park_features for Sequoia
-Park_Feature.create(park_id: sequoia.id, feature_id: hiking.id)
-Park_Feature.create(park_id: sequoia.id, feature_id: camping.id)
-Park_Feature.create(park_id: sequoia.id, feature_id: sightseeing.id)
+# Create the parkfeatures for Sequoia
+Parkfeature.create(park_id: sequoia.id, feature_id: hiking.id)
+Parkfeature.create(park_id: sequoia.id, feature_id: camping.id)
+Parkfeature.create(park_id: sequoia.id, feature_id: sightseeing.id)
 
 

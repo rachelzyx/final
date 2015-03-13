@@ -21,22 +21,24 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "activity"
   end
 
-  create_table "park_features", force: :cascade do |t|
+  create_table "parkfeatures", force: :cascade do |t|
     t.integer "park_id"
     t.integer "feature_id"
   end
 
-  add_index "park_features", ["feature_id"], name: "index_park_features_on_feature_id"
-  add_index "park_features", ["park_id"], name: "index_park_features_on_park_id"
+  add_index "parkfeatures", ["feature_id"], name: "index_parkfeatures_on_feature_id"
+  add_index "parkfeatures", ["park_id"], name: "index_parkfeatures_on_park_id"
 
   create_table "parks", force: :cascade do |t|
-    t.string  "name"
-    t.string  "state"
-    t.string  "country"
-    t.integer "rating"
-    t.text    "summary"
-    t.integer "airport_id"
-    t.string  "image"
+    t.string   "name"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "rating"
+    t.text     "summary"
+    t.integer  "airport_id"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "parks", ["airport_id"], name: "index_parks_on_airport_id"
@@ -53,8 +55,8 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "psasword"
     t.string "name"
+    t.string "password_digest"
   end
 
 end

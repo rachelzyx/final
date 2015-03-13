@@ -1,4 +1,5 @@
 class FeaturesController < ApplicationController
+  skip_before_action :require_user, only: :show
 
   def index
     @features = Feature.all
@@ -6,7 +7,7 @@ class FeaturesController < ApplicationController
 
   def show
     @feature = Feature.find_by(id: params["id"])
-    @park_features = @feature.park_features
+    @parkfeatures = @feature.parkfeatures
   end
 
   def new
@@ -15,7 +16,7 @@ class FeaturesController < ApplicationController
 
   def create
     feature_params = params.require(:feature).permit(:activity)
-    Feature.create(feature_params)
+    @feature = Feature.create(feature_params)
     redirect_to features_path
   end
 
@@ -32,7 +33,7 @@ class FeaturesController < ApplicationController
 
   def destroy
     @feature = Feature.find_by(id: params["id"])
-    @feature.delete
+    @feature.destroy
     redirect_to features_path
   end
 
